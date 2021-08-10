@@ -1,0 +1,25 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1565731301209",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::571725821101:role/ec2_s3_copy"
+            },
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::development-lambda-src-bucket",
+                "arn:aws:s3:::development-lambda-src-bucket/*"
+            ],
+            "Condition": {
+                "StringLike": {
+                    "aws:UserAgent": "*AWS_Lambda_python*"
+                }
+            }
+        }
+    ]
+}
